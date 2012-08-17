@@ -30,11 +30,11 @@ using namespace boost;
 
 int main(int argc, char * argv[])
 {
-
     string line;
     
     char_separator<char> space(" ");
-    
+    cin.sync_with_stdio(false);
+       
     while(getline(cin, line)) {
         if(line != "") {
             tokenizer<char_separator<char>> tokens(line, space);
