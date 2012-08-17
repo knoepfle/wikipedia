@@ -42,3 +42,9 @@ diff --from-file=output.cpp.txt output.py.txt output.awk.txt
 
 ## clean up
 rm output.cpp.txt output.py.txt output.awk.txt
+
+#### COMPILATION ####
+
+### Compile the C++ version to an executable named 'wikipedia' in the current directory:
+### (This assumes you have Boost somewhere in your include path.)
+## g++ -O3 wikipedia.cpp -o wikipedia
