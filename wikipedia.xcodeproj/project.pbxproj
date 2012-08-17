@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		89D10A5B15DD482E008AF2DC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 89D10A5A15DD482E008AF2DC /* main.cpp */; };
-		89D10A5D15DD482E008AF2DC /* wikipedia.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 89D10A5C15DD482E008AF2DC /* wikipedia.1 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,16 +17,17 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				89D10A5D15DD482E008AF2DC /* wikipedia.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8905D03315DDF1E500CDFEAB /* wikipedia.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = wikipedia.txt; sourceTree = "<group>"; };
+		8905D03415DDF1EE00CDFEAB /* wikipedia.awk */ = {isa = PBXFileReference; lastKnownFileType = text; path = wikipedia.awk; sourceTree = "<group>"; };
+		8905D03515DDF1EE00CDFEAB /* wikipedia.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = wikipedia.py; sourceTree = "<group>"; };
 		89D10A5615DD482E008AF2DC /* wikipedia */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wikipedia; sourceTree = BUILT_PRODUCTS_DIR; };
 		89D10A5A15DD482E008AF2DC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		89D10A5C15DD482E008AF2DC /* wikipedia.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = wikipedia.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				89D10A5A15DD482E008AF2DC /* main.cpp */,
-				89D10A5C15DD482E008AF2DC /* wikipedia.1 */,
+				8905D03315DDF1E500CDFEAB /* wikipedia.txt */,
+				8905D03415DDF1EE00CDFEAB /* wikipedia.awk */,
+				8905D03515DDF1EE00CDFEAB /* wikipedia.py */,
 			);
 			path = wikipedia;
 			sourceTree = "<group>";
@@ -174,14 +176,18 @@
 		89D10A6115DD482E008AF2DC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /usr/local/include;
 			};
 			name = Debug;
 		};
 		89D10A6215DD482E008AF2DC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /usr/local/include;
 			};
 			name = Release;
 		};
@@ -204,6 +210,7 @@
 				89D10A6215DD482E008AF2DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

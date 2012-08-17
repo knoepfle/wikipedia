@@ -1,0 +1,19 @@
+# OS X nonsense
+.DS_Store
+
+# XCode nonsense
+xcuserdata
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
