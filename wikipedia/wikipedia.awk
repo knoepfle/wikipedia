@@ -37,5 +37,5 @@ BEGIN {
 }
 
 END {
-    print out;
+    if($0 != "") print out;
 }
