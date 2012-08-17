@@ -28,6 +28,7 @@
 		8905D03515DDF1EE00CDFEAB /* wikipedia.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = wikipedia.py; sourceTree = "<group>"; };
 		8905D03615DE0DD700CDFEAB /* wikipedia.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = wikipedia.sh; sourceTree = "<group>"; };
 		8905D03715DE197600CDFEAB /* download_pagecounts.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = download_pagecounts.sh; sourceTree = "<group>"; };
+		8905D03915DE2FFA00CDFEAB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		89D10A5615DD482E008AF2DC /* wikipedia */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wikipedia; sourceTree = BUILT_PRODUCTS_DIR; };
 		89D10A5A15DD482E008AF2DC /* wikipedia.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wikipedia.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -46,6 +47,7 @@
 		89D10A4B15DD482E008AF2DC = {
 			isa = PBXGroup;
 			children = (
+				8905D03915DE2FFA00CDFEAB /* README.md */,
 				89D10A5915DD482E008AF2DC /* wikipedia */,
 				89D10A5715DD482E008AF2DC /* Products */,
 			);
