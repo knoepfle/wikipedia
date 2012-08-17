@@ -1,32 +1,50 @@
 //
-//  main.cpp
-//  wikipedia
+//  wikipedia.cpp
+//
+//  A demonstration of the utility of scripting languages when
+//  the task is primarily IO-bound.
 //
 //  Created by Daniel Knoepfle on 8/16/12.
 //  Copyright (c) 2012 Daniel Knoepfle. All rights reserved.
 //
 
 #include <iostream>
+#include <cstdio>
 #include <string>
 #include <boost/tokenizer.hpp>
 
 using namespace std;
 using namespace boost;
 
-//REVISION 4781981 72390319 Steven_Strogatz 2006-08-28T14:11:16Z SmackBot 433328
-//CATEGORY American_mathematicians
-//IMAGE
-//MAIN Boston_University MIT Harvard_University Cornell_University
-//TALK
-//USER
-//USER_TALK
-//OTHER De:Steven_Strogatz Es:Steven_Strogatz
-//EXTERNAL http://www.edge.org/3rd_culture/bios/strogatz.html
-//TEMPLATE Cite_book Cite_book Cite_journal
-//COMMENT ISBN formatting &/or general fixes using [[WP:AWB|AWB]]
-//MINOR 1
-//TEXTDATA 229
-//[blank line]
+/* SAMPLE DATA: */
+/*
+REVISION 4781981 72390319 Steven_Strogatz 2006-08-28T14:11:16Z SmackBot 433328
+CATEGORY American_mathematicians
+IMAGE
+MAIN Boston_University MIT Harvard_University Cornell_University
+TALK
+USER
+USER_TALK
+OTHER De:Steven_Strogatz Es:Steven_Strogatz
+EXTERNAL http://www.edge.org/3rd_culture/bios/strogatz.html
+TEMPLATE Cite_book Cite_book Cite_journal
+COMMENT ISBN formatting &/or general fixes using [[WP:AWB|AWB]]
+MINOR 1
+TEXTDATA 229
+[blank line]
+*/
+
+typedef tokenizer<char_separator<char> > spaced_tokenizer;
+
+void infix_output(spaced_tokenizer::iterator & it, spaced_tokenizer::iterator const & end, char const & sep) {
+    while(it != end) {
+        printf("%s", (*it).c_str());
+        advance(it, 1);
+        if(it != end) {
+            printf("%c", sep);
+        }
+    }
+}
 
 int main(int argc, char * argv[])
 {
@@ -37,25 +55,24 @@ int main(int argc, char * argv[])
        
     while(getline(cin, line)) {
         if(line != "") {
-            tokenizer<char_separator<char>> tokens(line, space);
-            auto ltok = tokens.begin();
+            spaced_tokenizer tokens(line, space);
+            spaced_tokenizer::iterator ltok = tokens.begin();
             
             string field_name = *ltok;
             advance(ltok, 1);
             
             if(field_name == "REVISION") {
-                while(ltok != tokens.end()) {
-                    cout << *ltok << "\t";
-                    advance(ltok, 1);
-                }
+                infix_output(ltok, tokens.end(), '\t');
             } else {
-                while(ltok != tokens.end()) {
-                    cout << *ltok << " ";
-                    advance(ltok, 1);
-                }
+                infix_output(ltok, tokens.end(), ' ');
+            }
+            
+            // output field separator
+            if(field_name != "TEXTDATA") {
+                printf("%c", '\t');
             }
         } else {
-            cout << "\n";
+            printf("%c", '\n');
         }
     }
     
