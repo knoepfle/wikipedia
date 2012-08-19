@@ -36,3 +36,9 @@ The `download_pagecounts.sh` script retrieves the raw views data from [dumps.wik
     bash download_pagecounts.sh
 
 It can be re-run without redownloading any existing files and will check that each month downloaded properly using the MD5 sums.
+
+Aside from MD5 checksumming and putting all files in the current directory, `download_pagecounts.sh` is easily replaced by
+
+    wget -r --no-parent http://dumps.wikimedia.org/other/pagecounts-raw/
+
+if `wget` is available (it isn't distributed with OS X, while `curl` is).
