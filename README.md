@@ -30,6 +30,8 @@ into a tab-separated format with 18 fields:
 
 The first six fields contain the data from the REVISION line split by tabs.  Each other line's data is put into a field verbatim; thus, within some of the other fields, there are several elements separated by spaces; e.g., the TEMPLATE field contains "Cite\_book Cite\_book Cite\_journal", and the OTHER field contains "De:Steven\_Strogatz Es:Steven\_Strogatz".
 
+The output has a total of 116,590,856 records.
+
 ## Raw page views data ##
 The `download_pagecounts.sh` script retrieves the raw views data from [dumps.wikimedia.org](http://dumps.wikimedia.org/other/pagecounts-raw/), saving it in the current directory.  To use it:
 
