@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import sys
-
+from shove import Shove
 
 '''
 Here are a few sample lines from one file:
@@ -33,13 +33,30 @@ These are hourly statistics, so in the line
 we see that the main page of the English language Wikipedia was requested over 240 thousand times during the specific hour. These are not unique visits.
 '''
 
+'''
+    [03:01]knoepfle@tyrone:~/Desktop$ cat pagecounts-2007* | /Library/Frameworks/Python.framework/Versions/2.7/bin/python ~/Dropbox/wikipedia/wikipedia/aggregate_pag
+    ecounts.py > pagecounts-aggregated.txt
+    Traceback (most recent call last):
+    File "/Users/knoepfle/Dropbox/wikipedia/wikipedia/aggregate_pagecounts.py", line 44, in <module>
+    vals[key] = visits
+    File "/Library/Python/2.7/site-packages/shove-0.5.3-py2.7.egg/shove/core.py", line 41, in __setitem__
+    self._cache[key] = self._buffer[key] = value
+    File "/Library/Python/2.7/site-packages/shove-0.5.3-py2.7.egg/shove/cache.py", line 45, in __setitem__
+    self._cull()
+    File "/Library/Python/2.7/site-packages/shove-0.5.3-py2.7.egg/shove/cache.py", line 55, in _cull
+    for num, key in enumerate(self):
+    RuntimeError: dictionary changed size during iteration
+'''
 
+vals = Shove('bsddb://data.db', 'memlru://')
 
-vals = dict()
 for line in sys.stdin:
     (project, page, visits, size) = line.rstrip().split(' ')
-    vals[(project, page)] = vals.get((project, page), 0) + int(visits)
+    key = project + ' ' + page
+    if key in vals:
+        vals[key] = str(long(vals[key]) + long(visits))
+    else:
+        vals[key] = visits
 
-for (key, value) in vals.iteritems():
-    (project, page) = key
-    print(' '.join([ project, page, str(value) ]))
+for key, value in vals.iteritems():
+    print(key + ' ' + value)
