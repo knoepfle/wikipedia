@@ -51,8 +51,11 @@ int main(int argc, char * argv[])
     string line;
     
     char_separator<char> space(" ");
+    
+    // make iostreams less slow (see ISO/IEC TR 18015:2006(E) pages 63-64)
     cin.sync_with_stdio(false);
-       
+    cin.tie(0);
+    
     while(getline(cin, line)) {
         if(line != "") {
             spaced_tokenizer tokens(line, space);
