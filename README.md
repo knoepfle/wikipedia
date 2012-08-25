@@ -68,7 +68,7 @@ The `sum_pagecounts.py` script acts as a filter, reducing the string of space-se
     Brown-eared_Woodpecker 2
     Brown-eared_Woolly_Opossum 8
 
-The syntax for `join_pagecounts.sh` is `join_pagecounts.sh [raw|intermediate] [outfile] [infiles]`.  Use `-r` ("raw") if the inputs are the raw `pagecounts-????????-??????.gz` files.  For instance,
+The syntax for `join_pagecounts.sh` is `join_pagecounts.sh [-r|-i] [outfile] [infiles]`.  Use `-r` ("raw") if the inputs are the raw `pagecounts-????????-??????.gz` files.  For instance,
 
     join_pagecounts.sh -r join-20071210.txt ../pagecounts-20071210-??????.gz
 
