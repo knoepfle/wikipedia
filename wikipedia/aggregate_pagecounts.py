@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import sys
-from shove import Shove
+
 
 '''
 Here are a few sample lines from one file:
@@ -33,6 +33,13 @@ These are hourly statistics, so in the line
 we see that the main page of the English language Wikipedia was requested over 240 thousand times during the specific hour. These are not unique visits.
 '''
 
+
+### naive implementation runs out of memory (unsurprisingly)
+# vals = dict()
+
+
+### file-backed dictionary using shove
+### fails with the following error:
 '''
     [03:01]knoepfle@tyrone:~/Desktop$ cat pagecounts-2007* | /Library/Frameworks/Python.framework/Versions/2.7/bin/python ~/Dropbox/wikipedia/wikipedia/aggregate_pag
     ecounts.py > pagecounts-aggregated.txt
@@ -48,6 +55,7 @@ we see that the main page of the English language Wikipedia was requested over 2
     RuntimeError: dictionary changed size during iteration
 '''
 
+from shove import Shove
 vals = Shove('bsddb://data.db', 'memlru://')
 
 for line in sys.stdin:
@@ -60,3 +68,5 @@ for line in sys.stdin:
 
 for key, value in vals.iteritems():
     print(key + ' ' + value)
+
+
