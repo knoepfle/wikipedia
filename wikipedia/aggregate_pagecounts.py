@@ -55,16 +55,25 @@ we see that the main page of the English language Wikipedia was requested over 2
     RuntimeError: dictionary changed size during iteration
 '''
 
-from shove import Shove
-vals = Shove('bsddb://data.db', 'memlru://')
+import os
+import base64
 
-for line in sys.stdin:
-    (project, page, visits, size) = line.rstrip().split(' ')
-    key = project + ' ' + page
+from shove import Shove
+vals = Shove('dbm://data.db', 'memory://')
+
+#for line in sys.stdin:
+for iter in range(100000):
+    #(project, page, visits, size) = line.rstrip().split(' ')
+    #key = project + ' ' + page
+    
+    key = base64.b16encode(os.urandom(5))
+    value = 1
     if key in vals:
-        vals[key] = str(long(vals[key]) + long(visits))
+        vals[key] = str(long(vals[key]) + long(value))
     else:
-        vals[key] = visits
+        vals[key] = value
+    if iter % 10000 == 1:
+        print >> sys.stderr, iter
 
 for key, value in vals.iteritems():
     print(key + ' ' + value)
