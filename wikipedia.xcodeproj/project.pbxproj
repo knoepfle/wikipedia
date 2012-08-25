@@ -29,6 +29,8 @@
 		8905D03615DE0DD700CDFEAB /* wikipedia.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = wikipedia.sh; sourceTree = "<group>"; };
 		8905D03715DE197600CDFEAB /* download_pagecounts.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = download_pagecounts.sh; sourceTree = "<group>"; };
 		8905D03915DE2FFA00CDFEAB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		892FD53B15E94DBE00F66E31 /* sum_pagecounts.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = sum_pagecounts.py; sourceTree = "<group>"; };
+		899BBF4B15E762F5003A219E /* join_pagecounts.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = join_pagecounts.sh; sourceTree = "<group>"; };
 		89C3DDF615E6152A00AE0B8B /* aggregate_pagecounts.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = aggregate_pagecounts.py; sourceTree = "<group>"; };
 		89D10A5615DD482E008AF2DC /* wikipedia */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wikipedia; sourceTree = BUILT_PRODUCTS_DIR; };
 		89D10A5A15DD482E008AF2DC /* wikipedia.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wikipedia.cpp; sourceTree = "<group>"; };
@@ -65,13 +67,15 @@
 		89D10A5915DD482E008AF2DC /* wikipedia */ = {
 			isa = PBXGroup;
 			children = (
-				8905D03715DE197600CDFEAB /* download_pagecounts.sh */,
 				89D10A5A15DD482E008AF2DC /* wikipedia.cpp */,
 				8905D03315DDF1E500CDFEAB /* wikipedia.txt */,
 				8905D03415DDF1EE00CDFEAB /* wikipedia.awk */,
 				8905D03615DE0DD700CDFEAB /* wikipedia.sh */,
 				8905D03515DDF1EE00CDFEAB /* wikipedia.py */,
 				89C3DDF615E6152A00AE0B8B /* aggregate_pagecounts.py */,
+				8905D03715DE197600CDFEAB /* download_pagecounts.sh */,
+				899BBF4B15E762F5003A219E /* join_pagecounts.sh */,
+				892FD53B15E94DBE00F66E31 /* sum_pagecounts.py */,
 			);
 			path = wikipedia;
 			sourceTree = "<group>";
