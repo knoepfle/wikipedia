@@ -70,19 +70,19 @@ The `sum_pagecounts.py` script acts as a filter, reducing the string of space-se
 
 The syntax for `join_pagecounts.sh` is `join_pagecounts.sh [-r|-i] [outfile] [infiles]`.  Use `-r` ("raw") if the inputs are the raw `pagecounts-????????-??????.gz` files.  For instance,
 
-    join_pagecounts.sh -r join-20071210.txt ../pagecounts-20071210-??????.gz
+    ./join_pagecounts.sh -r join-20071210.txt pagecounts-20071210-??????.gz
 
 joins the raw pageview files for 2007/12/10 into a file named `join-20071210.txt`.  Use `-i` ("intermediate") with output files like `join-20071210.txt`.  For instance,
 
-    for d in {01..31}; do join_pagecounts.sh -r join-200712${d}.txt ../pagecounts-200712${d}-??????.gz; done
+    for d in {01..31}; do ./join_pagecounts.sh -r join-200712${d}.txt pagecounts-200712${d}-??????.gz; done
     
-    join_pagecounts.sh -i join-200712.txt join-200712??.txt
+    ./join_pagecounts.sh -i join-200712.txt join-200712??.txt
     
 first joins the raw pageview files for each day in December, 2007 into files named `join-20071210.txt`, `join-20071211.txt`, `join-20071212.txt`, ..., `join-20071231.txt`, then joins these files together to produce `join-200712.txt` (note that December, 2007 lacks raw pageview files prior to 2007/12/10).
 
 At any point, you can aggregate the counts down to their sums by running the file through `sum_pagecounts.py`.  For instance,
 
-    cat join-200712.txt | sum_pagecounts.py > sum-200712.txt
+    cat join-200712.txt | ./sum_pagecounts.py > sum-200712.txt
 
 produces `sum-200712.txt`, containing the total number of pageviews for each page in December, 2007.
 
@@ -90,9 +90,9 @@ You can also add the optional `-s` flag to `join_pagecounts.sh` to tell it to su
 
 To join and sum an entire year (e.g., 2008), do
 
-    for m in {01..12}; do join_pagecounts.sh -r -s join-2008${m}.txt ../pagecounts-2008${m}??-??????.gz; done
+    for m in {01..12}; do ./join_pagecounts.sh -r -s join-2008${m}.txt pagecounts-2008${m}??-??????.gz; done
     
-    join_pagecounts.sh -i -s join-2008.txt join-2008??.txt
+    ./join_pagecounts.sh -i -s join-2008.txt join-2008??.txt
     
 This results in a file, `join-2008.txt`, containing the total number of pageviews for each page in all of 2008, along with monthly totals in `join-200801.txt`, `join-200802.txt`, ..., `join-200812.txt`.
 
