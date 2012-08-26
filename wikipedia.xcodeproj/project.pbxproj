@@ -47,6 +47,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		896141E715EAB3A4004DC874 /* edits */ = {
+			isa = PBXGroup;
+			children = (
+				89D10A5A15DD482E008AF2DC /* wikipedia.cpp */,
+				8905D03315DDF1E500CDFEAB /* wikipedia.txt */,
+				8905D03415DDF1EE00CDFEAB /* wikipedia.awk */,
+				8905D03615DE0DD700CDFEAB /* wikipedia.sh */,
+				8905D03515DDF1EE00CDFEAB /* wikipedia.py */,
+			);
+			name = edits;
+			sourceTree = "<group>";
+		};
+		896141E915EAB3B8004DC874 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				89C3DDF615E6152A00AE0B8B /* aggregate_pagecounts.py */,
+				8905D03715DE197600CDFEAB /* download_pagecounts.sh */,
+				899BBF4B15E762F5003A219E /* join_pagecounts.sh */,
+				892FD53B15E94DBE00F66E31 /* sum_pagecounts.py */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
 		89D10A4B15DD482E008AF2DC = {
 			isa = PBXGroup;
 			children = (
@@ -67,15 +90,8 @@
 		89D10A5915DD482E008AF2DC /* wikipedia */ = {
 			isa = PBXGroup;
 			children = (
-				89D10A5A15DD482E008AF2DC /* wikipedia.cpp */,
-				8905D03315DDF1E500CDFEAB /* wikipedia.txt */,
-				8905D03415DDF1EE00CDFEAB /* wikipedia.awk */,
-				8905D03615DE0DD700CDFEAB /* wikipedia.sh */,
-				8905D03515DDF1EE00CDFEAB /* wikipedia.py */,
-				89C3DDF615E6152A00AE0B8B /* aggregate_pagecounts.py */,
-				8905D03715DE197600CDFEAB /* download_pagecounts.sh */,
-				899BBF4B15E762F5003A219E /* join_pagecounts.sh */,
-				892FD53B15E94DBE00F66E31 /* sum_pagecounts.py */,
+				896141E715EAB3A4004DC874 /* edits */,
+				896141E915EAB3B8004DC874 /* views */,
 			);
 			path = wikipedia;
 			sourceTree = "<group>";
