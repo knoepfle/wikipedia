@@ -115,7 +115,7 @@ do
     for month in `cat months-$yyyy.txt`
     do
         download_month $yyyy $month
-        md5_check_month $yyyy $month || download_month $yyyy $month && md5_check_month $yyyy $month || echo "Redownload failed."
+        md5_check_month $yyyy $month || (download_month $yyyy $month && md5_check_month $yyyy $month) || echo "Redownload failed."
     done
 done
 
