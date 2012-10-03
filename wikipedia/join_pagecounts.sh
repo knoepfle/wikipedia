@@ -24,7 +24,7 @@ function usage() {
 
 [[ $# -lt 3 ]] && usage
 
-while getopts "rws" option
+while getopts "ris" option
 do
 case $option in
 r ) joincmd="join_raw" ;;
